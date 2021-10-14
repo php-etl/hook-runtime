@@ -15,7 +15,7 @@ use Kiboko\Contract\Pipeline\TransformerInterface;
 use Kiboko\Contract\Pipeline\TransformingInterface;
 use Psr\Container\ContainerInterface;
 
-class Hook implements HookRuntimeInterface
+class HookRuntime implements HookRuntimeInterface
 {
     private StateInterface $state;
 
