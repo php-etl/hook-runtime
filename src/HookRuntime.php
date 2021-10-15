@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Kiboko\Component\Runtime\Hook;
 
-use Kiboko\Component\State;
 use Kiboko\Contract\Pipeline\LoaderInterface;
 use Kiboko\Contract\Pipeline\LoadingInterface;
 use Kiboko\Contract\Pipeline\NullState;
@@ -32,7 +31,7 @@ class HookRuntime implements HookRuntimeInterface
         RejectionInterface $rejection,
         StateInterface $state,
     ): TransformingInterface {
-        $this->pipeline->transform($transformer, $rejection, $state = new State\MemoryState($state));
+        $this->pipeline->transform($transformer, $rejection, $this->state);
 
 //        $this->state->withStep('transformer')
 //            ->addMetric('read', $state->observeAccept())
@@ -47,7 +46,7 @@ class HookRuntime implements HookRuntimeInterface
         RejectionInterface $rejection,
         StateInterface $state,
     ): LoadingInterface {
-        $this->pipeline->load($loader, $rejection, $state = new State\MemoryState($state));
+        $this->pipeline->load($loader, $rejection, $this->state);
 
 //        $this->state->withStep('loader')
 //            ->addMetric('read', $state->observeAccept())
