@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e9defa56ce0ddff4956dfa857004cb8",
+    "content-hash": "c856b94e2c97834dc96e6d125a396d4d",
     "packages": [
         {
             "name": "php-etl/bucket-contracts",
@@ -61,7 +61,7 @@
         },
         {
             "name": "php-etl/pipeline-contracts",
-            "version": "dev-master",
+            "version": "v0.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/pipeline-contracts.git",
@@ -77,7 +77,6 @@
                 "php": "^8.0",
                 "php-etl/bucket-contracts": "^0.1.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -169,10 +168,9 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "php-etl/pipeline-contracts": 20,
         "psr/container": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.0"
