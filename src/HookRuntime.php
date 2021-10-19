@@ -16,14 +16,14 @@ use Psr\Container\ContainerInterface;
 
 class HookRuntime implements HookRuntimeInterface
 {
-    private StateInterface $state;
+    private MemoryState $state;
 
     public function __construct(
         private PipelineInterface $pipeline,
         private ContainerInterface $container,
         ?StateInterface $state = null
     ) {
-        $this->state = $state ?? new NullState();
+        $this->state = $state ?? new MemoryState(new NullState());
     }
 
     public function transform(
@@ -32,11 +32,6 @@ class HookRuntime implements HookRuntimeInterface
         StateInterface $state,
     ): TransformingInterface {
         $this->pipeline->transform($transformer, $rejection, $this->state);
-
-//        $this->state->withStep('transformer')
-//            ->addMetric('read', $state->observeAccept())
-//            ->addMetric('error', fn() => 0)
-//            ->addMetric('rejected', $state->observeReject());
 
         return $this;
     }
@@ -48,11 +43,6 @@ class HookRuntime implements HookRuntimeInterface
     ): LoadingInterface {
         $this->pipeline->load($loader, $rejection, $this->state);
 
-//        $this->state->withStep('loader')
-//            ->addMetric('read', $state->observeAccept())
-//            ->addMetric('error', fn() => 0)
-//            ->addMetric('rejected', $state->observeReject());
-
         return $this;
     }
 
@@ -62,7 +52,6 @@ class HookRuntime implements HookRuntimeInterface
         foreach ($this->pipeline->walk() as $item) {
             $line++;
         }
-//        $this->state->update();
 
         return $line;
     }
@@ -77,5 +66,10 @@ class HookRuntime implements HookRuntimeInterface
     public function container(): ContainerInterface
     {
         return $this->container;
+    }
+
+    public function metrics(): array
+    {
+        return $this->state->getMetrics();
     }
 }
