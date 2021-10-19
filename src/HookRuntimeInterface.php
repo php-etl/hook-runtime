@@ -7,9 +7,9 @@ use Kiboko\Contract\Pipeline\RunnableInterface;
 use Kiboko\Contract\Pipeline\TransformingInterface;
 use Psr\Container\ContainerInterface;
 
-interface HookRuntimeInterface extends TransformingInterface, LoadingInterface, RunnableInterface
+interface HookRuntimeInterface extends TransformingInterface, LoadingInterface
 {
     public function feed(...$data): self;
     public function container(): ContainerInterface;
-    public function metrics(): array;
+    public function run(): array;
 }

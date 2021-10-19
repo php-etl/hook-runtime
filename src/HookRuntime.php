@@ -46,14 +46,14 @@ class HookRuntime implements HookRuntimeInterface
         return $this;
     }
 
-    public function run(): int
+    public function run(): array
     {
         $line = 0;
         foreach ($this->pipeline->walk() as $item) {
             $line++;
         }
 
-        return $line;
+        return $this->state->getMetrics();
     }
 
     public function feed(...$data): HookRuntimeInterface
@@ -66,10 +66,5 @@ class HookRuntime implements HookRuntimeInterface
     public function container(): ContainerInterface
     {
         return $this->container;
-    }
-
-    public function metrics(): array
-    {
-        return $this->state->getMetrics();
     }
 }
