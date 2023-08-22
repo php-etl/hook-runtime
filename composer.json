@@ -3,8 +3,8 @@
     "description": "This library allows you to use the hook runtime",
     "type": "library",
     "require": {
-        "php": "^8.0",
-        "php-etl/pipeline-contracts": "^0.3.0",
+        "php": "^8.2",
+        "php-etl/pipeline-contracts": "0.4.*",
         "psr/container": "^1.0"
     },
     "license": "MIT",
@@ -23,7 +23,7 @@
     "prefer-stable": true,
     "extra": {
         "branch-alias": {
-            "dev-main": "0.1.x-dev"
+            "dev-main": "0.2.x-dev"
         }
     }
 }

@@ -12,6 +12,7 @@ use Kiboko\Contract\Pipeline\RejectionInterface;
 use Kiboko\Contract\Pipeline\StateInterface;
 use Kiboko\Contract\Pipeline\TransformerInterface;
 use Kiboko\Contract\Pipeline\TransformingInterface;
+use Kiboko\Contract\Pipeline\WalkableInterface;
 use Psr\Container\ContainerInterface;
 
 class HookRuntime implements HookRuntimeInterface
@@ -19,7 +20,7 @@ class HookRuntime implements HookRuntimeInterface
     private MemoryState $state;
 
     public function __construct(
-        private PipelineInterface $pipeline,
+        private PipelineInterface&WalkableInterface $pipeline,
         private ContainerInterface $container,
         ?StateInterface $state = null
     ) {
