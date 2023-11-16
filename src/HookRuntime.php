@@ -10,6 +10,9 @@ use Kiboko\Contract\Pipeline\NullState;
 use Kiboko\Contract\Pipeline\PipelineInterface;
 use Kiboko\Contract\Pipeline\RejectionInterface;
 use Kiboko\Contract\Pipeline\StateInterface;
+use Kiboko\Contract\Pipeline\StepCodeInterface;
+use Kiboko\Contract\Pipeline\StepRejectionInterface;
+use Kiboko\Contract\Pipeline\StepStateInterface;
 use Kiboko\Contract\Pipeline\TransformerInterface;
 use Kiboko\Contract\Pipeline\TransformingInterface;
 use Kiboko\Contract\Pipeline\WalkableInterface;
@@ -28,9 +31,10 @@ class HookRuntime implements HookRuntimeInterface
     }
 
     public function transform(
+        StepCodeInterface $step,
         TransformerInterface $transformer,
-        RejectionInterface $rejection,
-        StateInterface $state,
+        StepRejectionInterface $rejection,
+        StepStateInterface $state,
     ): TransformingInterface {
         $this->pipeline->transform($transformer, $rejection, $this->state);
 
@@ -38,9 +42,10 @@ class HookRuntime implements HookRuntimeInterface
     }
 
     public function load(
+        StepCodeInterface $step,
         LoaderInterface $loader,
-        RejectionInterface $rejection,
-        StateInterface $state,
+        StepRejectionInterface $rejection,
+        StepStateInterface $state,
     ): LoadingInterface {
         $this->pipeline->load($loader, $rejection, $this->state);
 
