@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8ba52516ed662d1179b4738a8cc3687",
+    "content-hash": "8d4d00a4a88d77eab2f9bc17c40a4cac",
     "packages": [
         {
             "name": "php-etl/bucket-contracts",
@@ -49,7 +49,7 @@
                     "homepage": "http://kiboko.fr"
                 },
                 {
-                    "name": "Grégory Planchat",
+                    "name": "Grégory Planchatn rules",
                     "email": "gregory@kiboko.fr"
                 }
             ],
@@ -62,16 +62,16 @@
         },
         {
             "name": "php-etl/pipeline-contracts",
-            "version": "v0.5.0",
+            "version": "v0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/pipeline-contracts.git",
-                "reference": "29aac4a1644c960355a17876e4a84bb8f0b89654"
+                "reference": "24c71241d16b7deca56d67ea0f1d591c8ae52f09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/pipeline-contracts/zipball/29aac4a1644c960355a17876e4a84bb8f0b89654",
-                "reference": "29aac4a1644c960355a17876e4a84bb8f0b89654",
+                "url": "https://api.github.com/repos/php-etl/pipeline-contracts/zipball/24c71241d16b7deca56d67ea0f1d591c8ae52f09",
+                "reference": "24c71241d16b7deca56d67ea0f1d591c8ae52f09",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 "php-etl/satellite-contracts": "0.1.*"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.0",
+                "friendsofphp/php-cs-fixer": "^3.38",
                 "phpstan/phpstan": "^1.10",
                 "rector/rector": "^0.15"
             },
@@ -112,29 +112,29 @@
             "description": "This library describes contracts for the Extract-Transform-Load pattern.",
             "support": {
                 "issues": "https://github.com/php-etl/pipeline-contracts/issues",
-                "source": "https://github.com/php-etl/pipeline-contracts/tree/v0.5.0"
+                "source": "https://github.com/php-etl/pipeline-contracts/tree/v0.5.1"
             },
-            "time": "2023-11-15T10:45:24+00:00"
+            "time": "2023-11-20T10:48:56+00:00"
         },
         {
             "name": "php-etl/satellite-contracts",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/satellite-contracts.git",
-                "reference": "1d2bc6822bfdb3efc6a1f490e706db995c99ef41"
+                "reference": "d2be591800f42e460a59d864888aedf00f111dd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/satellite-contracts/zipball/1d2bc6822bfdb3efc6a1f490e706db995c99ef41",
-                "reference": "1d2bc6822bfdb3efc6a1f490e706db995c99ef41",
+                "url": "https://api.github.com/repos/php-etl/satellite-contracts/zipball/d2be591800f42e460a59d864888aedf00f111dd7",
+                "reference": "d2be591800f42e460a59d864888aedf00f111dd7",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.2"
             },
             "require-dev": {
-                "rector/rector": "^0.15.0"
+                "rector/rector": "^0.15"
             },
             "type": "library",
             "extra": {
@@ -164,9 +164,9 @@
             "description": "This library describes contracts for defining satellite formats",
             "support": {
                 "issues": "https://github.com/php-etl/satellite-contracts/issues",
-                "source": "https://github.com/php-etl/satellite-contracts/tree/v0.1.0"
+                "source": "https://github.com/php-etl/satellite-contracts/tree/v0.1.1"
             },
-            "time": "2023-04-18T13:53:22+00:00"
+            "time": "2023-11-20T10:48:56+00:00"
         },
         {
             "name": "psr/container",
@@ -220,12 +220,12 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": "^8.4"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }
