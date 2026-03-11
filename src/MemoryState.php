@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Kiboko\Component\Runtime\Hook;
 
 use Kiboko\Contract\Pipeline\StateInterface;
+use Kiboko\Contract\Pipeline\StepCodeInterface;
 
 final class MemoryState implements StateInterface
 {
+    /** @var array{accept: int, reject: int, error: int} */
     private array $metrics = [];
 
     public function __construct(
@@ -26,22 +28,22 @@ final class MemoryState implements StateInterface
         $this->decorated->initialize($start);
     }
 
-    public function accept(int $step = 1): void
+    public function accept(StepCodeInterface $step, int $count = 1): void
     {
-        $this->metrics['accept'] += $step;
-        $this->decorated->accept($step);
+        $this->metrics['accept'] += $count;
+        $this->decorated->accept($step, $count);
     }
 
-    public function reject(int $step = 1): void
+    public function reject(StepCodeInterface $step, int $count = 1): void
     {
-        $this->metrics['reject'] += $step;
-        $this->decorated->reject($step);
+        $this->metrics['reject'] += $count;
+        $this->decorated->reject($step, $count);
     }
 
-    public function error(int $step = 1): void
+    public function error(StepCodeInterface $step, int $count = 1): void
     {
-        $this->metrics['error'] += $step;
-        $this->decorated->error($step);
+        $this->metrics['error'] += $count;
+        $this->decorated->error($step, $count);
     }
 
     public function observeAccept(): callable
@@ -59,7 +61,10 @@ final class MemoryState implements StateInterface
         $this->decorated->teardown();
     }
 
-    public function getMetrics()
+    /**
+     * @return array{accept: int, reject: int, error: int}
+     */
+    public function getMetrics(): array
     {
         return $this->metrics;
     }
